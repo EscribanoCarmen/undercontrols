@@ -1,0 +1,25 @@
+{% extends "generic.html" %} 
+{% block content %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/create-template.css' %}">
+<link rel="stylesheet" href="{% static 'css/anuncio.css' %}">
+{% if user.is_authenticated %}
+<section>
+  <a class="card" id="f1" href="{% url 'f1_create' %}"><span>Volante Tipo F1</span></a>
+  <a class="card" id="gt" href="{% url 'gt_create' %}"> <span>Volante Tipo GT</span></a>
+  <a class="card" id="truck" href="{% url 'camion_create' %}"><span>Volante Tipo Camión</span></a>
+</section>
+
+{% else %}
+
+<div id="anuncio"><em> ¡Regístrate o inicia sesión para crear tu propio volante! </em>
+  <section>
+    <a href="{% url 'register' %}">Regístrate</a>
+    <a href="{% url 'login'%}?next={{request.path}}">Iniciar Sesión</a></div>
+  </section>
+</div>
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "generic.html" %}
+
+{% block content %} 
+
+{% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/register.css' %}" />
+
+<!--Register--> 
+<div class="container py-5">
+	<div id="emblema">
+		<img src="{% static 'images/_titulo_horizontal.png'%}">
+		<h2>¡Rellena el formulario para poder crear!</h2>
+		<i>En nuestro sitio web podrás personalizar tu propio volante, ¡de la categoría que quieras! o si bien prefieres, visitar nuestra tienda y ver nuestros productos y ofertas</i>
+	</div>
+	
+	<form method="POST">
+		{% csrf_token %}
+		{{ register_form }}                    
+		<button class="btn btn-primary" type="submit">Registrarse</button>
+	</form>
+	
+</div>
+<footer id="final"></footer>
+<script>
+    document.getElementById('id_password1').placeholder= 'Mínimo 8 caracteres';
+    document.getElementById('id_password2').placeholder= 'Repite la contraseña';
+    document.getElementById('id_username').placeholder= 'Escribe nombre usuario';
+    document.getElementById('id_email').placeholder= 'Escribe tu dirección email';
+</script>
+
+{% endblock %}

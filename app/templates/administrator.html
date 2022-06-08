@@ -1,0 +1,24 @@
+{% extends "generic.html" %} 
+{% block content %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/admin.css' %}">
+{% if perms.app.is_admin %}
+<h2><i>Hola, {{ user.get_username }}</i></h2>
+<section id="seccion-admin">
+    <div>
+        <strong>Número de Pedidos Actuales: {{ num_wheelsPed }}</strong> 
+        <a href="{% url 'administrator-pers' %}">Gestión Pedidos <i class="bi bi-server"></i></a>
+    </div>
+    
+    <div>
+        <strong>Número de Volantes en Tienda: {{ num_wheelsShop }}</strong> 
+        <a href="{% url 'administrator-tienda' %}">Gestión Tienda <i class="bi bi-server"></i></a>
+    </div>
+</section>
+{% else %}
+<p>No tienes permisos para ver esta vista</p>
+<a href="{% url 'index' %}">Ir a la página principal</a>
+{% endif %}
+
+{% endblock %}

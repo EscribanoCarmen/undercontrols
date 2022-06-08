@@ -1,0 +1,80 @@
+section{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    
+}
+
+.card{
+    width: 30%;
+    height: 435px;
+    background-color: var(--secondary);
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.812);
+    margin-top: 3%;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    background-size: 100%;
+}
+
+.card span{
+    line-height: 400px;
+    font-weight: bolder;
+    color: var(--alternative);
+    text-shadow: 2px 2px black;
+    font-size: x-large;
+
+}
+
+.card::before{
+    content: '';
+    background-color: var(--defaultBack);
+    width: 0px;
+    height: 5px;
+    position: absolute;
+    border-radius: 40px;
+    margin-top: 220px;
+    transition: width 0.7s;
+}
+
+#f1{
+    background-image: url('../images/alonso.jpg');
+}
+
+#gt{
+    background-image: url('../images/gt3.jpg');
+}
+
+#truck{
+    background-image: url('../images/truck.jpg');
+}
+
+.card:hover{
+   
+   
+   animation-name: cambio;
+   animation-fill-mode: forwards;
+   animation-duration: 0.7s;
+}
+
+@keyframes cambio {
+    from{
+        filter: grayscale(100%);
+    }
+    to{
+        background-size: 102%;
+        filter: grayscale(100%);
+    }
+}
+
+.card:hover::before{
+    width: 120px;
+}
+
+.card:hover{
+    transform: scale(1.02);
+}
+
+
+
+

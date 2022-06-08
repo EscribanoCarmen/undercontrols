@@ -1,0 +1,41 @@
+{% extends "generic.html" %} 
+{% block content %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/admin_pers.css' %}">
+{% if perms.app.is_admin %}
+<a id="atras" href="{% url 'administrator' %}"><i class="bi bi-arrow-left-circle-fill"></i> Atrás</a>
+
+<h1>Pedidos Actuales</h1>
+{% for i in lista %}
+    <li id="objeto-lista">
+    <section>    
+    Pedido número: {{ i.pk }} (Estado = {{ i.estado }})
+    
+    {% if i.estado == 'P' %}
+    <div id="botones">
+    <a href="{% url 'administrator-mod' i.id %}" id="modificar"><span>Modificar Volante</span></a>
+    <a href="{% url 'administrator-cancel' i.id %}"  id="cancelar"><span>Cancelar Pedido</span></a>
+    </div>
+    {% else %}
+    <span id="enviado">Volante enviado <i class="bi bi-check2-circle"></i></span>
+   
+    {% endif %}
+    </section>
+    <ul>
+        <li>
+           <strong>Comprador/a:</strong> {{ i.comprador }}
+        </li>
+        <li>
+            <strong>Tipo volante:</strong> {{ i.tipo }}
+        </li>
+    </ul>
+    
+</li>
+{% endfor %}
+{% else %}
+<p>No tienes permisos para ver esta vista</p>
+<a href="{% url 'index' %}">Ir a la página principal</a>
+{% endif %}
+<footer id="final"></footer>
+{% endblock %}

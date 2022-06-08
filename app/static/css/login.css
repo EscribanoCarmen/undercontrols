@@ -1,0 +1,69 @@
+body{
+    background-color: black;
+}
+
+#container{
+      color: var(--alternative);
+      padding: 10px;
+      font-size: larger;
+      width: 50%;
+      margin: auto;
+      text-align: center;
+  }
+
+  #cabecera{
+    color: var(--mainColor);
+  }
+
+  .formulario-tabla{
+      margin: 10px auto;
+      width: 60%;
+      display: flex;
+      justify-content: space-between;
+  }
+
+  #id_username, #id_password{
+    border: 3px solid var(--mainColor);
+    border-radius: 5px;
+    padding: 5px;
+  }
+
+  input[type='submit']{
+      margin-top: 5%;
+      background-color: var(--mainColor);
+      color: var(--secondary);
+      border-radius: 5px;
+      border: 2px solid var(--mainColor);
+      padding: 10px 15px;
+  }
+
+  input[type='submit']:hover{
+      background-color: var(--secondary);
+      color: var(--mainColor);
+  }
+
+  .crear-cuenta{
+      text-decoration: underline;
+  }
+
+  @media screen and (max-width: 1000px){
+    .formulario-tabla{
+        width: 100%;
+        font-size: medium;
+    }
+   
+}
+
+@media screen and (max-width: 600px){
+    .formulario-tabla{
+        font-size: small;
+        justify-content: center;
+    }
+
+    #container main{
+        margin-top: 40%;
+    }
+    #id_password{
+        margin-right: 7%;
+    }
+  }

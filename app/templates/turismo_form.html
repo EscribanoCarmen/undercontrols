@@ -1,0 +1,50 @@
+{% extends "generic.html" %} {% block content %} {% load static %}
+<link rel="stylesheet" href="{% static 'css/create.css' %}" />
+<link rel="stylesheet" href="{% static 'css/createGT.css' %}" />
+
+
+<div id="vista-previa">
+  <span>Vista previa</span>
+  <section class="botones-8">
+    <div class="botones" id="boton-1"></div>
+    <div class="botones" id="boton-2"></div>
+    <div class="botones" id="boton-3"></div>
+    <div class="botones" id="boton-4"></div>
+    <div class="botones" id="boton-5"></div>
+    <div class="botones" id="boton-6"></div>
+    <div class="botones" id="boton-7"></div>
+    <div class="botones" id="boton-8"></div>
+  </section>
+  <section class="botones-14">
+    <div class="botones" id="boton-9"></div>
+    <div class="botones" id="boton-10"></div>
+    <div class="botones" id="boton-11"></div>
+    <div class="botones" id="boton-12"></div>
+    <div class="botones" id="boton-13"></div>
+    <div class="botones" id="boton-14"></div>
+  </section>
+ 
+  <section class="levas-2">
+    <div class="levas" id="leva-1"></div>
+    <div class="levas" id="leva-2"></div>
+  </section>
+  <img src="{% static 'images/plantillaGT.png'%}" alt="">
+  <div id="dashboard"></div>
+</div>
+
+<form action="" method="post">
+  {% csrf_token %}
+  <table>
+    {{ form.as_table }}
+  </table>
+  <div id="precio-vivo">500,00€</div>
+  <input type="submit" value="Comprar" />
+</form>
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"
+></script>
+<script src="{% static 'js/precioGT.js' %}"></script>
+{% endblock %}

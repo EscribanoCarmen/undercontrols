@@ -1,0 +1,26 @@
+{% extends "generic.html" %} {% block content %} {% load static %}
+
+<link rel="stylesheet" href="{% static 'css/admin-shop.css' %}" />
+{% if perms.app.is_admin %}
+<div id="contenedor">
+  <a id="atras" href="{% url 'administrator' %}"><i class="bi bi-arrow-left-circle-fill"></i> Atrás</a>
+
+  <h1>Actual en Tienda</h1>
+  <a id="anadir" href="{% url 'administrator-add' %}"><i class="bi bi-plus-circle-fill"></i> Añadir un nuevo producto a Tienda</a
+  >
+  {% for i in lista_tienda %}
+  <li id="objeto-lista">
+    <span> Prodcuto nº {{ i.id }} : {{i.nombre}} </span>
+    <section>
+      <a id="modificar" href="{% url 'administrator-update' i.id %}">Modificar Modelo</a>
+      <a id="eliminar" href="{% url 'administrator-delete' i.id %}">Quitar Modelo</a>
+    </section>
+  </li>
+  {% endfor %}
+</div>
+{% else %}
+<p>No tienes permisos para ver esta vista</p>
+<a href="{% url 'index' %}">Ir a la página principal</a>
+{% endif %}
+<footer id="final"></footer>
+{% endblock %}

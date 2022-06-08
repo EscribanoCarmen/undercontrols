@@ -1,0 +1,63 @@
+::marker {
+  font-size: x-large;
+  color: var(--mainColor);
+  text-decoration: dashed;
+  font-family: 'Neue Haas Grotesk Text Pro Black';
+}
+
+.item {
+  padding:5px 10px;
+  box-shadow: 0px 5px 2px rgba(0, 0, 0, 0.812);
+  border-radius: 3px;
+}
+
+.item a {
+  margin-left: 2%;
+}
+
+.item a:not(#cancelar) {
+  color: var(--mainColor);
+}
+
+#cancelar {
+  color: rgb(183, 50, 50);
+}
+
+.item a:hover {
+  text-decoration: underline !important;
+}
+#enviado {
+  color: var(--mainColor);
+  margin-left: 2%;
+}
+
+#info{
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  justify-content: space-around;
+
+}
+
+#info strong{
+  color: var(--mainColor);
+}
+
+#martillo, .produccion{
+  color: rgb(114, 56, 56);
+  margin-top: -5px;
+}
+
+.enviado{
+  color: rgb(98, 143, 194);
+}
+
+#martillo{
+  font-size: larger;
+  margin-left: 5px;
+  transform: rotate(45deg);
+}
+
+footer#final{
+  height: 200px !important;
+}

@@ -1,0 +1,25 @@
+{% extends "generic.html" %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/cancelar.css' %}">
+<h1>Cancelar Pedido</h1>
+
+<section>
+  <p>¿Quieres cancelar este pedido?</p>
+
+  <form action="" method="POST">
+  
+    {% csrf_token %}
+    {% if perms.app.is_admin %}
+    <a href="{% url 'administrator-pers' %}">Volver atrás</a>
+    {% else %}
+    <a href="{% url 'mis_pedidos' %}">Volver atrás</a>
+    {% endif %}
+    <input type="submit" action="" value="Sí, cancelar pedido." />
+    
+  </form>
+  
+</section>
+
+{% endblock %}

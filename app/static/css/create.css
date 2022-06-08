@@ -1,0 +1,128 @@
+body {
+  color: var(--alternative);
+}
+
+/* ANUNCIO EN CASO DE NO LOGGEADO */
+#anuncio {
+  margin: auto;
+  margin-top: 25px;
+  width: 40%;
+  border: 5px solid var(--mainColor);
+  color: var(--mainColor);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: larger;
+}
+
+#anuncio section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 5%;
+}
+
+#anuncio section a {
+  background-color: var(--mainColor);
+  color: var(--secondary);
+  border-radius: 5px;
+  border: 2px solid var(--mainColor);
+  padding: 10px 15px;
+}
+
+#anuncio section a:hover{
+  background-color: var(--secondary);
+  color: var(--mainColor);
+}
+/* *************** */
+
+#vista-previa,
+form {
+  margin-top: 5% !important;
+}
+
+#vista-previa {
+  width: 40%;
+  float: left;
+  margin-left: 5%;
+  height: 400px;
+  border-radius: 10px;
+  width: 50%;
+  background: linear-gradient(0deg, rgb(60, 60, 60) 0%, rgb(210, 210, 210) 35%);
+}
+
+#vista-previa span {
+  font-size: small;
+  margin-top: -25px;
+  position: absolute;
+}
+
+#vista-previa img{
+  width: 100%;  
+  margin-top: 20px;
+  filter: drop-shadow(0px 0px 1px black);
+}
+
+#id_precio {
+  visibility: hidden;
+}
+
+#precio-vivo {
+  font-size: 60px;
+  color: white;
+  text-align: right;
+}
+
+form{
+  background-color: var(--secondary);
+  margin: auto;
+  width: 30%;
+  float: right;
+  padding: 65px 25px;
+  border-radius: 10px;
+  box-shadow: 0px 10px 10px black;
+}
+
+form input, form select{
+  box-shadow: 0px 5px 5px black;
+}
+
+select{
+  width: 150px;
+}
+
+
+form input[type="submit"] {
+  margin: 5px auto;
+  background-color: var(--mainColor);
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+form select {
+  background-color: var(--mainColor);
+  color: var(--secondary);
+  padding: 3px;
+  border-radius: 5px;
+}
+
+form th {
+  width: 70%;
+  text-align: left;
+}
+
+form td {
+  width: 100%;
+  text-align: center;
+}
+
+/* NO FUNCIONA (INTENTO DE SWITCH EN UN CHECKBOX) */
+form input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  background-color: yellow !important;
+}
+input[type="checkbox"]:checked + label {
+  border: 2px solid red;
+}

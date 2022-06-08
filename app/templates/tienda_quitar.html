@@ -1,0 +1,18 @@
+{% extends "generic.html" %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/formularios_tienda.css' %}" />
+<section id="quitar">
+  <h1>Borrar Producto</h1>
+
+  <p>¿Quieres borrar ese volante?</p>
+  
+  <form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" action="" value="Borrar" />
+  </form>
+</section>
+
+<footer id="final"></footer>
+{% endblock %}

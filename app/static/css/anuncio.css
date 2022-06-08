@@ -1,0 +1,36 @@
+#anuncio {
+    width: 40%;
+    margin: auto;
+    text-align: center;
+    border: 4px solid var(--mainColor);
+    margin-top: 10%;
+    padding: 20px;
+    box-shadow: 0px 0px 30px black;
+}
+
+#anuncio section{
+    width: 50%;
+    margin: auto;
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#anuncio section a{
+    border: 2px solid var(--mainColor);
+    color: var(--mainColor);
+    background-color: var(--secondary);
+    box-shadow: 0px 0px 10px var(--secondary);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#anuncio section a:hover{
+    border: 2px solid var(--secondary);
+    color: var(--secondary);
+    background-color: var(--mainColor);
+}
+
+#anuncio section a:active{
+    transform: scale(0.95);
+}

@@ -1,0 +1,26 @@
+{% extends "generic.html" %} {% block content %} {% load static %}
+<link rel="stylesheet" href="{% static 'css/shop.css' %}" />
+<ul id="mostrador">
+  {% for volante in lista %}
+  <li class="tarjeta">
+    <img src="{{ volante.imagen.url }}" />
+    <section>
+      <div>
+        <strong>{{ volante.nombre }}</strong>
+        <p>{{ volante.descripcion_breve }}</p>
+      </div>
+
+      <footer>
+        <strong>{{ volante.precio }}€</strong>
+      <a href="{% url 'detalle' volante.id %}" id="ver-detalles"
+        >Ver detalles</a
+      >
+      </footer>
+      
+    </section>
+  </li>
+
+  {% endfor %}
+</ul>
+<footer id="final"></footer>
+{% endblock %}

@@ -1,0 +1,38 @@
+section{
+    text-align: center;
+    margin: auto;
+    width: 80%;
+}
+
+section h1{
+    font-size: xx-large;
+    width: 80%;
+    margin: 30px auto;
+}
+.cartas {
+  display: grid;
+  grid-template-columns: 480px 480px;
+  grid-template-rows: 200px 200px 200px 200px;
+  gap: 20px;
+}
+
+.carta {
+  background-color: var(--mainColor);
+  text-align: center;
+  box-shadow: 0px 10px 10px black;
+  display: flex;
+  justify-content: center;
+}
+
+.carta span{
+    margin: auto;
+    width: 80%;
+}
+
+.impar{
+    background-color: var(--secondary);
+}
+
+footer#final{
+    height: 100px;
+}

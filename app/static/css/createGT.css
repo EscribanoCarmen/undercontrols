@@ -1,0 +1,112 @@
+.botones-8, .botones-14, .levas-2 {
+  width: 40%;
+  top: 150px;
+  left: 130px;
+  position: absolute;
+  display: none;
+}
+
+.botones {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--secondary);
+    background-color: var(--mainColor);
+    font-size: smaller;
+    position: absolute;
+    text-align: center;
+    opacity: 0.8;
+    z-index: 1;
+    box-shadow: -2px 3px 2px rgba(0, 0, 0, 0.422),
+      inset 5px -5px 10px rgba(0, 0, 0, 0.422);
+  }
+
+  .botones:active {
+    transform: scale(0.95);
+  }
+
+
+  #boton-1, #boton-2{
+    top: 0px;
+  }
+
+  #boton-1{
+      left: 170px;
+  }
+
+  #boton-2{
+      right: 100px;
+  }
+
+  #boton-3, #boton-4{
+      top: 30px;
+  }
+
+  #boton-3, #boton-5, #boton-7{
+      left: 200px;
+  }
+
+  #boton-4, #boton-6, #boton-8{
+      right: 130px;
+  }
+
+  #boton-5, #boton-6{
+      top: 65px;
+  }
+
+  #boton-7, #boton-8{
+      top: 100px;
+  }
+
+  /* SECCIÓN DE 15 */
+  #boton-9, #boton-10, #boton-11{
+      top: 140px;
+  }
+
+  #boton-9, #boton-12{
+      left: 220px;
+  }
+
+  #boton-10, #boton-13{
+      left: 295px;
+  }
+
+  #boton-11, #boton-14{
+      right: 150px;
+  }
+
+  #boton-12, #boton-13, #boton-14{
+      top: 180px;
+  }
+  /* FIN BOTONES */
+
+  #dashboard{
+    width: 120px;
+    background-color: rgb(17, 17, 17);
+    height: 17px;
+    position: absolute;
+    top: 190px;
+    left: 375px;
+    display: none;
+  }
+
+  /* LEVAS */
+#leva-1, #leva-2{
+    top: 40px;
+    width: 50px;
+    height: 130px;
+    background-color: rgb(165, 96, 96);
+    position: absolute;
+}
+
+#leva-1{
+    left: 150px;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+
+#leva-2{
+    right: 80px;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+}

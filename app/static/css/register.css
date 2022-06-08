@@ -1,0 +1,97 @@
+#container{
+  margin-top: -1px;
+}
+body {
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+#emblema{
+  position: absolute;
+  width: 40%;
+  margin-top: 10%;
+  margin-left: 10%;
+  padding: 10px;
+}
+
+#emblema img{
+  width: 70%;
+  position: absolute;
+  margin-top: -10%;
+  margin-left: -2%;
+}
+
+#emblema i{
+  color: var(--mainColor);
+}
+
+form {
+  background-color: var(--secondary);
+  border-radius: 7px;
+  border: 2px solid var(--mainColor);
+  width: 30%;
+  float: right;
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  justify-content: space-around;
+  margin-right: 8%;
+  margin-top: 5%;
+  padding: 15px;
+  box-shadow: 0px 10px 15px black;
+}
+
+.helptext,
+br {
+  display: none;
+}
+
+form button {
+  align-self: center;
+  background-color: var(--mainColor);
+  color: var(--secondary);
+  border-radius: 5px;
+  border: 2px solid var(--mainColor);
+  padding: 10px 20px;
+  margin-top: 5%;
+    
+}
+
+form button:hover {
+  background-color: var(--secondary);
+  color: var(--mainColor);
+}
+
+label[for="id_username"],
+label[for="id_password1"],
+label[for="id_password2"] {
+  visibility: hidden;
+}
+
+label[for="id_username"]::before {
+  visibility: visible;
+  content: "Nombre Usuario";
+}
+
+label[for="id_password1"]::before {
+  visibility: visible;
+  content: "Contraseña";
+}
+
+label[for="id_password2"]::before {
+  visibility: visible;
+  content: "Repetir Contraseña";
+  height: 30px;
+}
+
+form input {
+  border: 3px solid var(--mainColor);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+
+#id_password1::after{
+    content: 'Texto';
+}

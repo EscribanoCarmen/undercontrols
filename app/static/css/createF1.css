@@ -1,0 +1,202 @@
+
+.seccion-10,
+.seccion-13,
+.levas-2 {
+  width: 40%;
+  top: 150px;
+  left: 130px;
+  position: absolute;
+  display: none;
+}
+.botones {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--secondary);
+  background-color: var(--mainColor);
+  font-size: smaller;
+  position: absolute;
+  text-align: center;
+  opacity: 0.8;
+  z-index: 1;
+  box-shadow: -2px 3px 2px rgba(0, 0, 0, 0.422),
+    inset 5px -5px 10px rgba(0, 0, 0, 0.422);
+}
+
+
+.botones:active {
+  transform: scale(0.95);
+}
+
+#boton-1,
+#boton-2 {
+  top: 0px;
+}
+
+#boton-1 {
+  left: 130px;
+}
+
+#boton-2 {
+  right: 65px;
+}
+
+#boton-3,
+#boton-4 {
+  top: 40px;
+}
+
+#boton-3 {
+  left: 195px;
+}
+
+#boton-4 {
+  right: 125px;
+}
+
+#boton-5,
+#boton-6 {
+  top: 10px;
+}
+
+#boton-5 {
+  left: 170px;
+}
+
+#boton-6 {
+  right: 100px;
+}
+
+#boton-7,
+#boton-8 {
+  top: 70px;
+}
+
+#boton-7 {
+  left: 195px;
+}
+
+#boton-8 {
+  right: 125px;
+}
+
+/* 13 botones */
+#boton-9,
+#boton-10 {
+  top: 115px;
+}
+
+#boton-9 {
+  left: 235px;
+}
+
+#boton-10 {
+  right: 165px;
+}
+
+#boton-11,
+#boton-12,
+#boton-13 {
+  top: 150px;
+}
+
+#boton-11 {
+  left: 200px;
+}
+
+#boton-12 {
+  left: 300px;
+}
+
+#boton-13 {
+  right: 130px;
+}
+
+#display {
+  background-color: black;
+  color: white;
+  border: 4px solid var(--secondary);
+  width: 150px;
+  height: 90px;
+  border-radius: 10px;
+  text-align: center;
+  position: absolute;
+  margin-top: 90px;
+  margin-left: 230px;
+  display: none;
+  z-index: 1;
+}
+
+#leds {
+  width: 80%;
+  height: 10px;
+  background-color: var(--secondary);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  margin: auto;
+  margin-top: -10px;
+  display: flex;
+  justify-content: center;
+}
+
+.luz {
+  border-radius: 100%;
+  background-color: black;
+  width: 10px;
+  height: 10px;
+}
+
+#display strong {
+  margin: auto;
+  text-decoration: dotted;
+  font-size: 30px;
+  width: 100px;
+}
+
+#display small {
+  position: absolute;
+  margin-left: -35px;
+  margin-top: 60px;
+  text-align: center;
+}
+
+.levas {
+  position: absolute;
+  width: 40px;
+  height: 50px;
+  background-color: rgb(114, 56, 56);
+}
+
+#leva-izq {
+  top: 50px;
+  left: 155px;
+  border-top-left-radius: 60%;
+}
+
+#leva-der {
+  top: 50px;
+  right: 85px;
+  border-top-right-radius: 60%;
+}
+
+#embrague {
+  width: 60px;
+  height: 40px;
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 70%;
+  border-bottom-right-radius: 180%;
+  top: 290px;
+  left: 280px;
+  display: none;
+}
+
+#embrague-aux {
+  width: 50px;
+  height: 40px;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 70%;
+  border-bottom-left-radius: 180%;
+  top: 290px;
+  left: 545px;
+  display: none;
+}

@@ -1,0 +1,18 @@
+{% extends "generic.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/modificar-pedido.css' %}">
+<h1>Modificar Estado Pedido</h1>
+
+<form action="" method="post" enctype= multipart/form-data>
+    {% csrf_token %}
+    <table>
+    {{ form.as_table }}
+    
+    </table>
+    
+    <input type="submit" value="Modificar" />
+
+</form>
+<footer id="final"></footer>
+{% endblock %}

@@ -1,0 +1,153 @@
+body{
+    background-image: url('../images/fondo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+#container{
+    width: 100%;
+}
+
+main{
+    width: 100%;
+}
+
+#admin-button{
+    background-color: var(--mainColor);
+    top: 10px;
+    right: 15px;
+    padding: 10px;
+    position: absolute;
+    color: var(--secondary);
+    border-radius: 10px;
+    border: 2px solid var(--alternative);
+    box-shadow: 0px 10px 10px 10px black;
+}
+
+#admin-button:hover{
+    background-color: var(--secondary);
+    color: var(--mainColor);
+    border: 2px solid var(--mainColor);
+}
+
+
+main h1{
+    position: absolute;
+    left: 20px;
+    color: var(--alternative);
+    font-size: 60px;
+    text-shadow: 0px 0px 5px black;
+    opacity: 0;
+    
+    /* animación de aparecer */
+    animation-name: comingIn;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    animation-delay: 0.5s;
+}
+
+#seccion{
+    width: 100%;
+    margin: auto;
+    margin-top: 600px;
+    margin-bottom: 200px;
+    height: 400px;
+    color: var(--alternative);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.564);
+    backdrop-filter: blur(6px);
+}
+
+#seccion a{
+    width: 40%;
+    height: 80%;
+    margin-top: 2%;
+    color: var(--alternative);
+    text-decoration: none;
+}
+
+#seccion a div{
+    height: 100%;
+    border-radius: 10px;
+    border: 7px solid var(--mainColor);
+    box-shadow: 0px 0px 10px black;
+}
+
+#seccion a div:hover{
+    transform: scale(1.01);
+}
+
+#seccion #primer-enlace{
+    background-image: url(https://cdn.shopify.com/s/files/1/2784/4966/articles/DSC3696_1024x1024.jpg?v=1639157417);
+}
+
+#seccion div:last-child{
+    background-image: url(https://cdn-1.motorsport.com/images/amp/0JxWxnEY/s6/f1-british-gp-2018-mercedes-st.jpg);
+}
+
+#seccion a div h2{
+    margin-top: 20%;
+    text-align: center;
+    font-size: xx-large;
+    text-shadow: 0px 0px 7px black;
+}
+
+@keyframes comingIn {
+    0%{top: -20px;}
+    50%{top: -10px; opacity: 0.3;}
+    100%{top: 0px; opacity: 1;}
+}
+
+
+footer{
+    background-color: rgba(0, 0, 0, 0.564);
+    backdrop-filter: blur(6px);
+    width: 100%;
+    height: 200px;
+    margin-top: -200px;
+    padding: 100px 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+footer section{
+    margin: auto;
+    margin-top: -20px;
+    text-align: center;
+}
+
+footer section small{
+    position: relative;
+    top: -15px;
+}
+
+footer section div{
+    width: 110px;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    top: -15px;
+}
+
+#sobre{
+    width: 20px;
+    position: relative;
+    top: -30px;
+    padding: 15px 20px;
+    border-radius: 20px;
+    background-color: var(--mainColor);
+    color: var(--secondary);
+    border: 4px solid var(--secondary);
+    transition: background-color 1s, color 1s, border 1s;
+}
+
+#sobre:hover{
+    background-color: black;
+    color:var(--mainColor);
+    border: 4px solid var(--mainColor);
+}
+

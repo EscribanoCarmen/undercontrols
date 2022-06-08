@@ -1,0 +1,38 @@
+{% extends "generic.html" %} {% block content %} {% load static %}
+<link rel="stylesheet" href="{% static 'css/create.css' %}" />
+<link rel="stylesheet" href="{% static 'css/createTruck.css' %}" />
+
+
+<div id="vista-previa">
+  <span>Vista previa</span>
+  <section id="intermitente"></section>
+  <section id="luces"></section>
+  <img id="imagen-1" src="{% static 'images/plantillaCamion1.png'%}" alt="">
+  <img id="imagen-2" src="{% static 'images/plantillaCamion2.png'%}" alt="">
+  <img id="imagen-3" src="{% static 'images/plantillaCamion3.png'%}" alt="">
+  <section class="botones-4">
+    <div class="botones" id="boton-1"></div>
+    <div class="botones" id="boton-2"></div>
+    <div class="botones" id="boton-3"></div>
+    <div class="botones" id="boton-4"></div>
+  </section>
+ 
+</div>
+
+<form action="" method="post">
+  {% csrf_token %}
+  <table>
+    {{ form.as_table }}
+  </table>
+  <div id="precio-vivo">300,00€</div>
+  <input type="submit" value="Comprar" />
+</form>
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"
+></script>
+<script src="{% static 'js/precioCamion.js' %}"></script>
+
+{% endblock %}

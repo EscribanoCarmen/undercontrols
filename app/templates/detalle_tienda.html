@@ -1,0 +1,22 @@
+{% extends "generic.html" %} 
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/detalle.css' %}">
+<link rel="stylesheet" href="{% static 'css/anuncio.css' %}">
+{% if user.is_authenticated %}
+    <h1><strong>{{ volante_tienda.nombre }}</strong></h1>
+    <p>{{ volante_tienda.descripcion_larga }}</p>
+   <a href="{% url 'comprar' volante_tienda.id %}">Comprar</a>
+
+   {% else %}
+
+<div id="anuncio"><em> ¡Regístrate o inicia sesión ver y comprar volantes! </em>
+  <section>
+    <a href="{% url 'register' %}">Regístrate</a>
+    <a href="{% url 'login'%}?next={{request.path}}">Iniciar Sesión</a></div>
+  </section>
+</div>
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,45 @@
+#seccion-admin{
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 400px;
+}
+
+#seccion-admin div{
+    width: 40%;
+    background-color: var(--mainColor);
+    color: var(--secondary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 1);
+}
+
+#seccion-admin div strong{
+    margin: auto;
+    margin-top: 150px;
+}
+
+#seccion-admin div a{
+    background-color: var(--secondary);
+    color: var(--mainColor);
+    box-shadow: 0px 3px 7px rgba(0, 0, 0, 1);
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: -70px;
+}
+
+#seccion-admin div a:hover{
+    transform: scale(1.05);
+}
+
+
+#enviado{
+    color: var(--mainColor);
+    margin-left: 20px;
+}
+

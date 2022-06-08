@@ -1,0 +1,44 @@
+{% extends "generic.html" %}
+
+{% block content %}
+
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<main>
+{% if form.errors %}
+<p>Error. Los campos de usuario y contraseña no coinciden</p>
+{% endif %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+    <p>Tu cuenta actual no tiene acceso a esta página. Por favor, inicia sesión 
+      con una cuenta que sí lo tenga.
+    </p>
+    {% else %}
+    <h2 id="cabecera">Inicia Sesión en Under Controls.</h2>
+    {% endif %}
+{% endif %}
+
+<form method="post" action="{% url 'login' %}">
+{% csrf_token %}
+
+<div class="formulario-tabla">
+  <td >Nombre Usuario: </td>
+  <td >{{ form.username }}</td>
+</div>
+<div class="formulario-tabla">
+  <td id="label-paswd" >Contraseña: </td>
+  <td >{{ form.password }}</td>
+</div>
+
+<div>
+  <input type="submit" value="Entrar" />
+  <input type="hidden" name="next" value="{{ next }}" />
+</div>
+</form>
+
+
+<p class="crear-cuenta"><a href="{% url 'register' %}">¿No tienes cuenta aún? Crea tu cuenta aquí.</a></p>
+</main>
+{% endblock %}

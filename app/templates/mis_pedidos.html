@@ -1,0 +1,53 @@
+{% extends "generic.html" %} 
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/mis_pedidos.css' %}">
+
+<h1><i>Mis Pedidos</i></h1>
+
+<ol>
+    {% for pedido in lista_pedidos %}
+    {% if pedido.comprador == user.username %}
+    <li class="item">Pedido de volante tipo: {{ pedido.tipo }} 
+        <a class="detalles"><i class="bi bi-plus-circle"></i> Ver Detalles</a> 
+        {% if pedido.estado != 'E' %}   
+    <a href="{% url 'administrator-cancel' pedido.id %}" id="cancelar"><i class="bi bi-x-octagon"></i> Cancelar Pedido</a>
+    {% else %}
+    <i id="enviado">Volante enviado <i class="bi bi-check2-circle"></i></i>
+    {% endif %}
+    <hr>
+    <div id="info" style="display: none;">
+        <small><i>Nº del Pedido: {{ pedido.id }}-4GF5341</i></small>
+        {% if pedido.refTienda != null %} 
+        <span><strong>Precio:</strong> {{ pedido.precio }}€</span>
+        {% else %}
+        {% if pedido.estado != 'E' %}  
+        <span class="produccion"><strong> Estado:</strong> En Producción <i id="martillo" class="bi bi-hammer"></i> </span>
+        <small><i>({{pedido.dias_finalizar}} días aprox. para su finalización)</i></small>
+        {% else %}
+        <span class="enviado"><strong>Estado:</strong> En camino <i class="bi bi-truck"></i></span>
+        
+        {% endif %}
+        <span><strong>Precio:</strong> {{ pedido.precio }}€</span>
+        
+        {% endif %}
+       
+    </div>
+   
+    </li>
+    {% endif %}
+    {% endfor %}
+</ol>
+<footer id="final"></footer>
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"
+></script>
+<script>
+    $('.detalles').hover(function(){
+        $(this).next().next().next().fadeToggle(50);
+    });
+</script>
+
+{% endblock %}

@@ -1,0 +1,79 @@
+#vista-previa img{
+    height: 130%;
+    width: 150%;
+    margin: auto;
+    margin-left: -23%;
+    margin-top: -10%;
+
+}
+
+#imagen-1, #imagen-2, #imagen-3{
+    display: none;
+}
+
+.botones-4{
+    width: 40%;
+    top: 240px;
+    left: 130px;
+    position: absolute;
+    background-color: aqua;
+    display: none;
+}
+
+.botones{
+    width: 30px;
+    height: 13px;
+    background-color: red;
+    box-shadow: inset 5px -5px 10px rgba(0, 0, 0, 0.319);
+    border: 2px solid black;
+    position: absolute;
+    opacity: 0.7;
+}
+
+#boton-1, #boton-2{
+    border-top-left-radius: 50%;
+    left: 260px;
+    transform: rotate(-7deg);
+}
+
+#boton-1,#boton-3{
+    top: 10px;
+}
+
+#boton-2, #boton-4{
+    top: 30px
+}
+
+#boton-3, #boton-4{
+    border-top-right-radius: 50%;
+    left: 340px;
+    transform: rotate(7deg);
+}
+
+#intermitente, #luces{
+    width: 60px;
+    height: 15px;
+    background-color: rgb(73, 73, 73);
+    border: 2px solid black;
+    border-radius: 10%;
+    border-top-left-radius: 20%;
+    border-bottom-left-radius: 20%;
+    position: absolute;
+    opacity: 0.85;
+    display: none;
+   
+}
+
+#intermitente{
+    transform: rotate(60deg);
+    top: 210px;
+    left: 330px;
+
+}
+
+#luces{ 
+    transform: rotate(-60deg);
+    top: 210px;
+    left: 490px;
+
+}
