@@ -1,7 +1,11 @@
 {% extends "generic.html" %}
 
 {% block content %}
-<p>Logged out!</p>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<h2 id="cabecera">Has cerrado sesión. </h2>
+<p>¿Quieres volver a inicarla?</p>
 
-<a href="{% url 'login'%}">Click here to login again.</a>
+<a class="enlaces" href="{% url 'login'%}">Iniciar Sesión</a>
+<a class="enlaces" href="{% url 'index'%}">Inicio</a>
 {% endblock %}

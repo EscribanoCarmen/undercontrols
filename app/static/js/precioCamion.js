@@ -25,7 +25,7 @@ $('#id_piel_aro').click(function () {
         precioBase -= goma;
     }
 
-    if ($("#id_piel_aro option:selected").text() == "Cuero") {
+    if ($("#id_piel_aro option:selected").text() == "Cuero [+200€]") {
         $("#imagen-1").fadeToggle();
         precioBase += cuero;
         $('#id_precio').val(precioBase);
@@ -34,7 +34,7 @@ $('#id_piel_aro').click(function () {
         extraAlcantara = false;
         extraGoma = false;
     }
-    if ($("#id_piel_aro option:selected").text() == "Alcántara") {
+    if ($("#id_piel_aro option:selected").text() == "Alcántara [+150€]") {
         $("#imagen-3").fadeToggle();
         precioBase += alcantara;
         $('#id_precio').val(precioBase);
@@ -43,7 +43,7 @@ $('#id_piel_aro').click(function () {
         extraAlcantara = true;
         extraGoma = false;
     }
-    if ($("#id_piel_aro option:selected").text() == "Goma") {
+    if ($("#id_piel_aro option:selected").text() == "Goma [+100€]") {
         $("#imagen-2").fadeToggle();
         precioBase += goma;
         $('#id_precio').val(precioBase);
@@ -59,7 +59,7 @@ $('#id_botones').click(function () {
         precioBase -= botones;
     }
 
-    if($('#id_botones option:selected').text() == "4"){
+    if($('#id_botones option:selected').text() == "4 [+100€]"){
         $('.botones-4').fadeToggle();
         precioBase += botones;
         $('#id_precio').val(precioBase);
@@ -67,7 +67,7 @@ $('#id_botones').click(function () {
         extraBotones = true;
     }
 
-    if($('#id_botones option:selected').text() == "0"){
+    if($('#id_botones option:selected').text() == "0 [+0€]"){
         $('#id_precio').val(precioBase);
         $('#precio-vivo').text(precioBase + ",00€");
         extraBotones = false;

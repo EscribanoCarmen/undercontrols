@@ -2,14 +2,15 @@
 
 {% block content %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/formularios_tienda.css' %}" />
-<section id="quitar">
-  <h1>Borrar Producto</h1>
+<link rel="stylesheet" href="{% static 'css/cancelar.css' %}">
 
+  <h1>Borrar Producto</h1>
+  <section id="quitar">
   <p>¿Quieres borrar ese volante?</p>
   
   <form action="" method="POST">
     {% csrf_token %}
+    <a href="{% url 'administrator-tienda' %}">Volver atrás</a>
     <input type="submit" action="" value="Borrar" />
   </form>
 </section>

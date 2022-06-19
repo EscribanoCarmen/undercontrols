@@ -1,0 +1,77 @@
+.contenedor{
+    background-color: var(--secondary);
+    box-shadow: 0px 10px 10px black;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#container section{
+    width: 45%;
+}
+
+.info{
+    text-align: right;
+}
+
+.info h1{
+    font-size: xx-large;
+}
+
+.info h4{
+    font-style: italic;
+    color: var(--mainColor)
+}
+
+.info hr{
+    background-color: var(--mainColor);
+    border-radius: 10px;
+    height: 2px;
+    border: thin var(--mainColor);
+}
+
+.imagen img{
+    width: 100%;
+}
+
+#precio{
+    font-size: 40px;
+}
+
+.caution{
+    border: 3px solid rgb(189, 46, 46);
+    margin: 30px 0px;
+    border-radius: 10px;
+    padding: 15px;
+    padding-bottom: 20px;
+    border-style: double;
+}
+
+.caution h3{
+    color: gold;
+}
+
+#comprar{
+    padding: 5px 20px;
+    height: 200px;
+    background-color: var(--mainColor);
+    border: 2px solid white;
+    border-radius: 10px;
+    color: var(--secondary);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.738);
+    cursor: pointer;
+    margin: 20px;
+}
+
+#unidades{
+    margin-bottom: 30px;
+    text-decoration: underline;
+}
+
+#no-stock{
+    margin-bottom: 30px;
+    font-weight: bold;
+    color: brown;
+}

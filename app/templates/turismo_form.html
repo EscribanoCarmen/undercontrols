@@ -29,7 +29,24 @@
     <div class="levas" id="leva-2"></div>
   </section>
   <img src="{% static 'images/plantillaGT.png'%}" alt="">
-  <div id="dashboard"></div>
+  <div id="dashboard">
+    <section id="leds1">
+      <div class="luz on"></div>
+      <div class="luz on"></div>
+      <div class="luz on"></div>
+      <div class="luz"></div>
+    </section>
+
+    <strong id="marcha">N</strong>
+    
+    <section id="leds2">
+      <div class="luz"></div>
+      <div class="luz"></div>
+      <div class="luz"></div>
+      <div class="luz"></div>
+    </section>
+
+  </div>
 </div>
 
 <form action="" method="post">
@@ -37,7 +54,7 @@
   <table>
     {{ form.as_table }}
   </table>
-  <div id="precio-vivo">500,00€</div>
+  <div id="precio-vivo">400,00€</div>
   <input type="submit" value="Comprar" />
 </form>
 

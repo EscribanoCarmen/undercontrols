@@ -1,6 +1,6 @@
 let precioBase = parseInt($('#id_precio').val(), 10);
-let extraBotones8 = false; let botones8 = 100;
-let extraBotones15 = false; let botones15 = 150;
+let extraBotones8 = false; let botones8 = 50;
+let extraBotones15 = false; let botones15 = 100;
 //_________________
 let extraLevas2 = false; let levas2 = 50;
 let extraLevas3 = false; let levas3 = 150;
@@ -18,7 +18,7 @@ $("#id_botones").click(function () {
     if (extraBotones8) {
         precioBase -= botones8;
     }
-    if ($("#id_botones option:selected").text() == "8") {
+    if ($("#id_botones option:selected").text() == "8 [+50€]") {
         $('.seccion-10').fadeToggle();
         //compruebo si ha elegido antes los otros, para restarle su precio
         precioBase += botones8;
@@ -28,7 +28,7 @@ $("#id_botones").click(function () {
         extraBotones15 = false;
 
     }
-    if ($("#id_botones option:selected").text() == "15") {
+    if ($("#id_botones option:selected").text() == "15 [+100€]") {
         $('.seccion-10').fadeToggle();
         $('.seccion-13').fadeToggle();
 
@@ -52,7 +52,7 @@ $('#id_numero_levas').click(function () {
     if (extraLevas4) {
         precioBase -= levas4;
     }
-    if ($('#id_numero_levas option:selected').text() == "2") {
+    if ($('#id_numero_levas option:selected').text() == "2 [+50€]") {
         $('.levas-2').fadeToggle();
         precioBase += levas2;
         $('#id_precio').val(precioBase);
@@ -61,7 +61,7 @@ $('#id_numero_levas').click(function () {
         extraLevas3 = false;
         extraLevas4 = false;
     }
-    if ($('#id_numero_levas option:selected').text() == "3") {
+    if ($('#id_numero_levas option:selected').text() == "3[+150€]") {
         $('.levas-2').fadeToggle();
         $('#embrague').fadeToggle();
         precioBase += levas3;
@@ -72,7 +72,7 @@ $('#id_numero_levas').click(function () {
         extraLevas4 = false;
     }
 
-    if ($('#id_numero_levas option:selected').text() == "4") {
+    if ($('#id_numero_levas option:selected').text() == "4 [+200€]") {
         $('.levas-2').fadeToggle();
         $('#embrague').fadeToggle();
         $('#embrague-aux').fadeToggle();
@@ -89,11 +89,11 @@ $('#id_material_levas').click(function () {
     if (extraMaterial) {
         precioBase -= 50;
     }
-    if ($('#id_material_levas option:selected').text() == "Plástico") {
+    if ($('#id_material_levas option:selected').text() == "Plástico [+0€]") {
         $('.levas').css('background-color', 'rgb(62, 62, 62)');
 
         extraMaterial = false;
-    } else if ($('#id_material_levas option:selected').text() == "Metal") {
+    } else if ($('#id_material_levas option:selected').text() == "Metal [+50€]") {
         $('.levas').css('background-color', 'rgb(25, 25, 25)');
         precioBase += 50;
         extraMaterial = true;

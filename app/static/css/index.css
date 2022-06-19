@@ -62,37 +62,37 @@ main h1{
 }
 
 #seccion a{
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 56%);
     width: 40%;
-    height: 80%;
+    height: 70%;
     margin-top: 2%;
     color: var(--alternative);
     text-decoration: none;
-}
-
-#seccion a div{
-    height: 100%;
     border-radius: 10px;
     border: 7px solid var(--mainColor);
-    box-shadow: 0px 0px 10px black;
+    border-style: inset;
 }
 
-#seccion a div:hover{
-    transform: scale(1.01);
-}
-
-#seccion #primer-enlace{
-    background-image: url(https://cdn.shopify.com/s/files/1/2784/4966/articles/DSC3696_1024x1024.jpg?v=1639157417);
-}
-
-#seccion div:last-child{
-    background-image: url(https://cdn-1.motorsport.com/images/amp/0JxWxnEY/s6/f1-british-gp-2018-mercedes-st.jpg);
-}
-
-#seccion a div h2{
-    margin-top: 20%;
+#seccion a h2{
+    margin-top: 22%;
     text-align: center;
-    font-size: xx-large;
+    font-size: x-large;
     text-shadow: 0px 0px 7px black;
+}
+
+#seccion a:hover h2{
+    transform: scale(1.01);
+    animation-name: agitar;
+    animation-iteration-count: infinite;
+    animation-duration: 0.4s;
+    animation-direction: normal;
+}
+
+@keyframes agitar {
+    0%{margin-left: -10px;}
+    50%{margin-left: 20px;}
+    100%{margin-left: -10px;}
+
 }
 
 @keyframes comingIn {
@@ -101,6 +101,18 @@ main h1{
     100%{top: 0px; opacity: 1;}
 }
 
+#redes{
+    width: 50%;
+    margin: auto;
+    font-size: larger;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+#redes a i{
+    color: white;
+}
 
 footer{
     background-color: rgba(0, 0, 0, 0.564);

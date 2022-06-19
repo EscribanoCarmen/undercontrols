@@ -4,9 +4,34 @@
 <link rel="stylesheet" href="{% static 'css/detalle.css' %}">
 <link rel="stylesheet" href="{% static 'css/anuncio.css' %}">
 {% if user.is_authenticated %}
-    <h1><strong>{{ volante_tienda.nombre }}</strong></h1>
-    <p>{{ volante_tienda.descripcion_larga }}</p>
-   <a href="{% url 'comprar' volante_tienda.id %}">Comprar</a>
+  <div class="contenedor">
+    <section class="imagen">
+      <img src="{{ volante_tienda.imagen.url }}" />
+    </section>
+    <section class="info">
+      <h1><strong>{{ volante_tienda.nombre }}</strong> ({{volante_tienda.año}})</h1>
+      <h4>Descripción breve:</h4>
+      <hr>
+      <p>{{ volante_tienda.descripcion_breve }}</p>
+
+      <h4>Información del monoplaza</h4>
+      <hr>
+      <p>{{ volante_tienda.info_coche}}</p>  
+
+      <h4>Precio:</h4> 
+      <h2 id="precio">{{volante_tienda.precio}} €</h2>
+      
+      {% if volante_tienda.stock > 0 %}
+      <p id="unidades">Unidades disponibles: {{ volante_tienda.stock }}</p>
+      <a href="{% url 'pago' volante_tienda.id tipo %}" id="comprar">Pasar al Método de Pago</a>
+   
+      {% else %}
+      <p id="no-stock">No Hay Stock</p>
+      {% endif %}
+      
+       </section>
+
+  </div>
 
    {% else %}
 
@@ -19,4 +44,5 @@
 
 {% endif %}
 
+<footer id="final"></footer>
 {% endblock %}

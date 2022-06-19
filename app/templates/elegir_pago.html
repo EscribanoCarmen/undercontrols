@@ -1,0 +1,35 @@
+{% extends "generic.html" %} 
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/elegir_pago.css' %}">
+
+{% if disponibles %}
+<h1>Elegir Método de Pago para esta compra</h1>
+<form action="">
+    <h3>Elige método de pago <u>antes</u> de pasar a elegir dirección de envío</h3>
+    <select id="selector">
+        {% for tarjeta in disponibles %}
+        <option value="{% url 'direccion' pk tipo  tarjeta.id %}" >Nº {{tarjeta.num_tarjeta}} <u>TIPO: {{tarjeta.tarjeta_credito}}</u></option>
+        {% endfor %}
+    </select>
+
+    <a href="{% url 'metodo-pago-create' pk tipo %}" id="anadir"><i class="bi bi-plus-circle"></i> Añadir otra tarjeta de crédito</a>
+   
+</form>
+<a href="" id="pasar">Pasar a Dirección de Envío</a>
+   
+{% else %}
+<h2><i>No tienes métodos de pago aún asociados a tu perfil.</i></h2>
+<h5><i>Para comprar necesitar tener registrado un método de pago</i></h5>
+<a href="{% url 'metodo-pago-create' pk tipo %}" id="anadir"><i class="bi bi-plus-circle"></i> Añadir tarjeta de crédito</a>
+{% endif %} 
+
+
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"
+></script>
+<script src="{% static 'js/elegir_pago.js' %}"></script>
+{% endblock %}

@@ -1,34 +1,61 @@
 from email.policy import default
+from urllib import request
 from django.db import models
 from django.contrib.auth.models import User
 
+#TARJETA
+class TarjetaCredito(models.Model):
+	TIPOS_TARJETA = (
+		('MasterCard', 'Mastercard'),
+		('VISA', 'VISA'),
+	)
+	user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+	tarjeta_credito = models.CharField(max_length=100, null=False, choices=TIPOS_TARJETA)
+	num_tarjeta = models.CharField(max_length=16, null=False)
+	fecha_caducidad = models.CharField(max_length=100, null=False)
+	codigo_seguridad = models.CharField(null=False, max_length=3)
 
-# Create your models here.
+class Direccion(models.Model):
+	user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+	direccion = models.CharField(max_length=100, null=False, default="C/")
+	puerta = models.CharField(max_length=100, null=False, default='Puerta no introducida')
+	piso = models.CharField(max_length=10, null=True, blank=True)
+	ciudad = models.CharField(max_length=100, null=False, default='Ciudad no introducida')
+	provincia = models.CharField(max_length=100, null=False, default='Provincia no introducida')
+	
+
+# USUARIO DATOS
+class UsuarioDatos(models.Model):
+	user = models.OneToOneField(User, on_delete=models.CASCADE)
+	metodo_pago = models.ManyToManyField(TarjetaCredito, max_length=100, null=True, blank=True)
+	direccion = models.ManyToManyField(Direccion, max_length=100, null=True, blank=True)
+ 
 
 class Volante_Tienda(models.Model):
 	nombre = models.CharField(max_length=100)
 	descripcion_breve = models.TextField(max_length=300, null=False, default='En proceso')
-	caracteristicas = models.TextField(max_length=300, null=False, default='En proceso')
-	descripcion_larga = models.TextField(max_length=900, null=True)
+	año = models.CharField(max_length=4, null=True)
+	info_coche = models.TextField(max_length=900, null=True)
 	imagen = models.ImageField(blank=True, null=False, default="error404.png")
+	stock = models.IntegerField(null=False, default=0)
 	precio = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=500)
 
 
 class TipoFormula1(models.Model):
 	BOTONES = (
-		('8', '8'),
-		('15', '15'),
+		('8', '8 [+50€]'),
+		('15', '15 [+100€]'),
 	)
 
 	LEVAS = (
-		('Dos', '2'),
-		('Tres', '3'),
-		('Cuatro', '4'),
+		('Dos', '2 [+50€]'),
+		('Tres', '3[+150€]'),
+		('Cuatro', '4 [+200€]'),
 	)
 
 	MATERIAL_LEVAS = (
-		('Plastico', 'Plástico'),
-		('Metal', 'Metal'),
+		('Plastico', 'Plástico [+0€]'),
+		('Metal', 'Metal [+50€]'),
 	)
 
 	ESTADO = (
@@ -46,16 +73,16 @@ class TipoFormula1(models.Model):
 
 class TipoTurismo(models.Model):
 	BOTONES = (
-		('Ocho', '8'),
-		('Catorce', '14'),
+		('Ocho', '8 [+100€]'),
+		('Catorce', '14 [+170€]'),
 	)
 	LEVAS = (
-		('Cero', '0'),
-		('Dos', '2'),
+		('Cero', '0 [+0€]'),
+		('Dos', '2 [+100€]'),
 	)
 	MATERIAL_LEVAS = (
-		('Plastico', 'Plástico'),
-		('Metal', 'Metal'),
+		('Plastico', 'Plástico [+0€]'),
+		('Metal', 'Metal [+50€]'),
 	)
 
 	ESTADO = (
@@ -70,20 +97,20 @@ class TipoTurismo(models.Model):
 
 	botones = models.CharField(max_length=100, choices=BOTONES)
 	numero_levas = models.CharField(max_length=20, choices=LEVAS)
-	material_levas = models.CharField(max_length=100, choices=MATERIAL_LEVAS)
+	material_levas = models.CharField(max_length=100, choices=MATERIAL_LEVAS, null=True, blank=True)
 	display = models.BooleanField(default=False)
 	precio = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=400)	
 	estado = models.CharField(max_length=50, choices=ESTADO, default='P')
 
 class TipoCamion(models.Model):
 	BOTONES = (
-		('Cero', '0'),
-		('Cuatro', '4'),
+		('Cero', '0 [+0€]'),
+		('Cuatro', '4 [+100€]'),
 	)
 	PIEL = (
-		('Cuero', 'Cuero'),
-		('Alcántara', 'Alcántara'),
-		('Goma', 'Goma'),
+		('Cuero', 'Cuero [+200€]'),
+		('Alcántara', 'Alcántara [+150€]'),
+		('Goma', 'Goma [+100€]'),
 	)
 	ESTADO = (
 		('P', 'En Produccion'),
@@ -107,6 +134,7 @@ class Pedidos(models.Model):
         ('P', 'En Produccion'),
         ('E', 'Para Enviar')
     )
+
 	refF1 = models.ForeignKey(TipoFormula1, on_delete=models.CASCADE, null=True, unique=True)
 	refCamion = models.ForeignKey(TipoCamion, on_delete=models.CASCADE, null=True, unique=True)
 	refTurismo = models.ForeignKey(TipoTurismo, on_delete=models.CASCADE, null=True, unique=True)
@@ -114,11 +142,14 @@ class Pedidos(models.Model):
 	tipo = models.CharField(max_length=50, default='Error', null=False)
 	comprador = models.CharField(max_length=100, null=False, default='usuario no encontrado')
 	precio = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=500)
+	tarjeta_credito = models.ForeignKey(TarjetaCredito, on_delete=models.CASCADE, unique=False, null=True)
+	direccion = models.ForeignKey(Direccion, on_delete=models.CASCADE, unique=False, null=True)
 	estado = models.CharField(max_length=50, choices=ESTADO, null=False, default='P')
 	dias_finalizar = models.CharField(max_length=3, null=True, default=30)
 	
 	class Meta:
 		permissions = (('is_admin', 'is_admin'),)
+
 
 
 

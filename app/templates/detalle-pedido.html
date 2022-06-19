@@ -1,8 +1,0 @@
-{% extends "generic.html" %} 
-{% block content %}
-{% load static %}
-
-<link rel="stylesheet" href="{% static 'css/detalle-pedido.css' %}">
-<h1>Volante: {{ pedidos.tipo }}</h1>
-<small><i>Pedido nº {{ pedidos.id }}</i></small>
-{% endblock %}

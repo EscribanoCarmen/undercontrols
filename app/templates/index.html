@@ -6,19 +6,16 @@
   <h1>Donde empiezan las carreras</h1>
   {% if perms.app.is_admin %}
   <a id="admin-button" href="{% url 'administrator'%}">Vista Administrador</a>
+  {% elif not user.is_authenticated %}
+  <a id="admin-button" href="{% url 'register' %}"><i class="bi bi-person-fill"></i> Regístrate aquí</a>
   {% endif %}
 </main>
 <section id="seccion">
   <a href="{% url 'create_template' %}">
-    <div id="primer-enlace">
       <h2>Crea tu volante</h2>
-    </div>
   </a>
   <a href="{% url 'shop' %}">
-    <div id="segundo-enlace">
       <h2>Échale un vistazo a nuestra tienda</h2>
-    </div>
-    
   </a>
 </section>
 <footer>
@@ -26,13 +23,14 @@
     <a id="sobre" href="{% url 'about_us' %}"><i class="bi bi-people-fill"></i> Sobre Nosotros</a>
   </section>
   <section>
-    <h2>Copyright&copy; 2022</h2>
-    <small>All rights well deserved</small>
-    <div>
-      <i class="bi bi-instagram"></i>
-      <i class="bi bi-twitter"></i>
-      <i class="bi bi-facebook"></i>
-    </div>
+    <h2>Under Controls SL 2022</h2>
+    <small>¡Síguenos en nuestras redes!</small>
+    <div id="redes">
+      <a href="https://twitter.com/?lang=es"><i class="bi bi-twitter"></i></a>
+      <a href="https://www.instagram.com/"><i class="bi bi-instagram"></i></a>
+      <a href="https://es-es.facebook.com/"><i class="bi bi-facebook"></i></a>
+      <a href="https://www.youtube.com/"><i class="bi bi-youtube"></i></a>
+  </div>
   </section>
   
 </footer>

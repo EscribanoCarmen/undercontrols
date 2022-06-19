@@ -7,6 +7,7 @@ let extraLevas2 = false; let levas2 = 100;
 //________________
 let extraMaterial = false;
 let extraDisplay = false; let display = 200;
+$('#id_material_levas').attr('disabled', 'disabled')
 
 $("#id_botones").click(function () {
     if (extraBotones14) {
@@ -15,7 +16,7 @@ $("#id_botones").click(function () {
     if (extraBotones8) {
         precioBase -= botones8;
     }
-    if ($("#id_botones option:selected").text() == "8") {
+    if ($("#id_botones option:selected").text() == "8 [+100€]") {
         $('.botones-8').fadeToggle();
         //compruebo si ha elegido antes los otros, para restarle su precio
         precioBase += botones8;
@@ -25,7 +26,7 @@ $("#id_botones").click(function () {
         extraBotones14 = false;
 
     }
-    if ($("#id_botones option:selected").text() == "14") {
+    if ($("#id_botones option:selected").text() == "14 [+170€]") {
         $('.botones-8').fadeToggle();
         $('.botones-14').fadeToggle();
 
@@ -43,18 +44,20 @@ $('#id_numero_levas').click(function () {
     if (extraLevas2) {
         precioBase -= levas2;
     }
-    if ($('#id_numero_levas option:selected').text() == "2") {
+    if ($('#id_numero_levas option:selected').text() == "2 [+100€]") {
         $('.levas-2').fadeToggle();
         precioBase += levas2;
         $('#id_precio').val(precioBase);
         $('#precio-vivo').text(precioBase + ",00€");
         extraLevas2 = true;
+        $('#id_material_levas').attr('disabled', false)
     }
-    if ($('#id_numero_levas option:selected').text() == "0") {
+    if ($('#id_numero_levas option:selected').text() == "0 [+0€]") {
         if (extraLevas2) {
         $('#id_precio').val(precioBase);
         $('#precio-vivo').text(precioBase + ",00€");
         extraLevas2 = false;
+        $('#id_material_levas').attr('disabled', 'disabled')
     }
 }
 });
@@ -65,11 +68,11 @@ $('#id_material_levas').click(function () {
     if (extraMaterial) {
         precioBase -= 50;
     }
-    if ($('#id_material_levas option:selected').text() == "Plástico") {
+    if ($('#id_material_levas option:selected').text() == "Plástico [+0€]") {
         $('.levas').css('background-color', 'rgb(62, 62, 62)');
 
         extraMaterial = false;
-    } else if ($('#id_material_levas option:selected').text() == "Metal") {
+    } else if ($('#id_material_levas option:selected').text() == "Metal [+50€]") {
         $('.levas').css('background-color', 'rgb(25, 25, 25)');
         precioBase += 50;
         extraMaterial = true;

@@ -6,7 +6,12 @@
     <img src="{{ volante.imagen.url }}" />
     <section>
       <div>
-        <strong>{{ volante.nombre }}</strong>
+        <strong>{{ volante.nombre }}</strong> <i>({{volante.año}})</i>
+        {% if volante.stock < 10 and volante.stock > 0 %}
+        <p><small class="pocos">Últimas unidades disponibles ({{ volante.stock }})</small></p>
+        {% elif volante.stock == 0%}
+        <p><small class="nada">No hay stock</small></p>
+        {% endif %}
         <p>{{ volante.descripcion_breve }}</p>
       </div>
 

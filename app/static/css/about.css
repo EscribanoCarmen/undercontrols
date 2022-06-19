@@ -1,18 +1,35 @@
-section{
+#container{
     text-align: center;
+}
+
+#titulo{
+    font-size: 50px;
+    color: var(--mainColor);
+}
+
+hr{
+    width: 80%;
+    height: 5px;
+    background-color: var(--mainColor);
+    border-radius: 20px;
+}
+
+section{
     margin: auto;
+    margin-bottom: 40px;
     width: 80%;
 }
 
 section h1{
-    font-size: xx-large;
+    font-size: x-large;
     width: 80%;
     margin: 30px auto;
+    font-style: italic;
 }
 .cartas {
   display: grid;
   grid-template-columns: 480px 480px;
-  grid-template-rows: 200px 200px 200px 200px;
+  grid-template-rows: 200px 200px 200px;
   gap: 20px;
 }
 
@@ -27,12 +44,68 @@ section h1{
 .carta span{
     margin: auto;
     width: 80%;
+    text-shadow: 0 0 2px black;
+}
+
+.carta:hover span{
+    transform: scale(1.1);
 }
 
 .impar{
     background-color: var(--secondary);
 }
 
+.trabajadores{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+
+.trabajadores div:hover img{
+    filter: grayscale(100%);
+    opacity: 0.2;
+}
+
+.trabajadores div:hover span{
+    opacity: 1;
+}
+
+.trabajadores div img{
+    width: 200px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 3px;
+}
+
+.trabajadores div span{
+    font-size: x-large;
+    position: absolute;
+    text-align: center;
+    margin-top: 80px;
+    width: 200px;
+    opacity: 0;
+    font-weight: bold;
+}
+
+.trabajadores div span i{
+    font-size: small;
+}
+
+#redes{
+    width: 30%;
+    margin: auto;
+    font-size: x-large;
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+#redes a{
+    color: white;
+}
+
 footer#final{
-    height: 100px;
+    height: 120px;
 }

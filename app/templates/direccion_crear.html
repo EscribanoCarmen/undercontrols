@@ -1,0 +1,24 @@
+{% extends "generic.html" %} 
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/modificar-pedido.css' %}">
+<!-- FORMULARIO DE TARJETA -->
+<h1>Escribe una nueva Dirección de Envío</h1>
+<form action="" method="post">
+    {% csrf_token %}
+    <table>
+      {{ form.as_table }}
+    </table>
+    <input type="submit" value="Crear Direccion" />
+  </form>
+  <small><i>Los campos con (*) son obligatorios</i></small>
+
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"
+></script>
+<script src="{% static 'js/crear_direccion.js' %}"></script>
+{% endblock %}
+

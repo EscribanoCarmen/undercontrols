@@ -28,7 +28,8 @@ body{
     padding: 5px;
   }
 
-  input[type='submit']{
+  input[type='submit'], .enlaces{
+    margin: 5px;
       margin-top: 5%;
       background-color: var(--mainColor);
       color: var(--secondary);
@@ -37,7 +38,7 @@ body{
       padding: 10px 15px;
   }
 
-  input[type='submit']:hover{
+  input[type='submit']:hover, .enlaces:hover{
       background-color: var(--secondary);
       color: var(--mainColor);
   }

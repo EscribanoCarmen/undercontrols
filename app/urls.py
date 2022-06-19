@@ -69,14 +69,33 @@ urlpatterns += [
 ]
 
 urlpatterns += [
-    url(r'^detalle/(?P<pk>\d+)/$', views.VolanteTiendaDetailView.as_view(), name='detalle')
+    url(r'^detalle/(?P<pk>\d+)/$', views.VolanteTiendaDetailView, name='detalle')
 ]
 
 urlpatterns += [
-    url(r'^comprar/(?P<pk>\d+)/$', views.comprar, name='comprar')
+    url(r'^comprar/(?P<pk>\d+)/(?P<tipo>\d+)/(?P<card>\d+)/(?P<local>\d+)/$', views.comprar, name='comprar')
 ]
 
 urlpatterns += [
     url(r'^about/$',views.aboutUs, name="about_us")
 ]
 
+urlpatterns += [
+    url(r'^compra-finalizada/$', views.gracias, name='gracias')
+]
+
+urlpatterns += [
+    url(r'^elegir-pago/(?P<pk>\d+)/(?P<tipo>\d+)/crear-metodo-pago/$', views.TarjetaCreate.as_view(), name='metodo-pago-create')
+]
+
+urlpatterns += [
+    url(r'^elegir-direccion/(?P<pk>\d+)/(?P<tipo>\d+)/(?P<card>\d+)/crear-direccion/$', views.DireccionCreate.as_view(), name='direccion-create')
+]
+
+urlpatterns += [
+    url(r'^elegir-pago/(?P<pk>\d+)/(?P<tipo>\d+)/$', views.pagar1, name='pago')
+]
+
+urlpatterns += [
+    url(r'^elegir-direccion/(?P<pk>\d+)/(?P<tipo>\d+)/(?P<card>\d+)/$', views.pagar2, name='direccion')
+]

@@ -1,0 +1,13 @@
+{% extends "generic.html" %} 
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/gracias.css' %}" />
+
+<h2>¡Gracias por su compra!</h2>
+<section>
+   
+    <h6>Le hemos enviado un correo. Puede ver detalles del pedido en 'Mis Pedidos' o en el correo que le hemos enviado</h6>
+    <a href="{% url 'index' %}"><i class="bi bi-arrow-return-left"></i> Ir al inicio</a>
+</section>
+
+{% endblock %}

@@ -1,9 +1,9 @@
 {% extends "generic.html" %}
 {% block content %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/formularios_tienda.css' %}" />
-
-<form action="" method="post">
+<link rel="stylesheet" href="{% static 'css/modificar-pedido.css' %}">
+<h1>Modificar Volante Tienda</h1>
+<form action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <table>
     {{ form.as_table }}

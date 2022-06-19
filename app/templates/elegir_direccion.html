@@ -1,0 +1,42 @@
+{% extends "generic.html" %} 
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/elegir_pago.css' %}">
+
+{% if localizaciones %}
+<h1>Elegir <u>Dirección de Envío</u> para esta compra</h1>
+<form action="">
+    <h3>Elige dirección antes de comprar</h3>
+    <select id="selector">
+        {% for local in localizaciones %}
+        <option value="{% url 'comprar' pk tipo card local.id %}">Nº {{local.direccion}} </option>
+        {% endfor %}
+    </select>
+
+    <a href="{% url 'direccion-create' pk tipo card %}" id="anadir"><i class="bi bi-plus-circle"></i> Añadir otra dirección de envío</a>
+   
+</form>
+<button id="comprar1" disabled>Comprar</button>
+{% else %}
+<h2><i>No tienes direcciones aún asociadas a tu perfil.</i></h2>
+<h5><i>Para que te enviemos el producto, necesitamos al menos una direccion</i></h5>
+<a href="{% url 'direccion-create' pk tipo card %}" id="anadir"><i class="bi bi-plus-circle"></i> Añadir tarjeta de crédito</a>
+{% endif %}
+
+
+
+<section id="modal" style="display: none;">
+    <span id="cerrar"><i class="bi bi-x-lg"></i></span>
+    <h2>¿Estás seguro de que quieres comprar este producto con ese método de pago?</h2>
+    <hr>
+    <span id="no">No</span>
+    <a href="" id="comprar">Sí, compro este producto.</a>
+</section>
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"
+></script>
+<script src="{% static 'js/elegir_direccion.js' %}"></script>
+{% endblock %}

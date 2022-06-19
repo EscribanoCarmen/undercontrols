@@ -2,9 +2,12 @@
 {% block content %}
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/mis_pedidos.css' %}">
-
+<link rel="stylesheet" href="{% static 'css/anuncio.css' %}">
 <h1><i>Mis Pedidos</i></h1>
+{% if user.is_authenticated %}
 
+
+{% if lista_pedidos %}
 <ol>
     {% for pedido in lista_pedidos %}
     {% if pedido.comprador == user.username %}
@@ -16,20 +19,28 @@
     <i id="enviado">Volante enviado <i class="bi bi-check2-circle"></i></i>
     {% endif %}
     <hr>
+    <!-- INFO/DETALLES -->
     <div id="info" style="display: none;">
         <small><i>Nº del Pedido: {{ pedido.id }}-4GF5341</i></small>
-        {% if pedido.refTienda != null %} 
-        <span><strong>Precio:</strong> {{ pedido.precio }}€</span>
-        {% else %}
-        {% if pedido.estado != 'E' %}  
+
+            <small><strong>Número de la tarjeta a la que se le ha hecho el cargo:</strong> <i>{{ pedido.tarjeta_credito.num_tarjeta}}</i>
+            {% if pedido.tarjeta_credito.tarjeta_credito == 'MasterCard' %}
+              <img src="https://www.estamosenlinea.com.ve/wp-content/uploads/2017/10/mastercard.jpg" width="30px" height="20px" alt="">
+            {% elif datos.tarjeta_credito == 'VISA' %}
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Former_Visa_%28company%29_logo.svg/288px-Former_Visa_%28company%29_logo.svg.png" width="30px" height="20px" alt="">
+            {% endif %}
+            </small>
+            <span><strong>Dirección de Envío del Pedido: </strong> {{ pedido.direccion.direccion }}, {{ pedido.direccion.ciudad }}, {{ pedido.direccion.provincia }}</span>
+            <span><strong>Precio:</strong> {{ pedido.precio }}€</span>
+
+        {% if pedido.refTienda == null %}
+        {% if pedido.estado != 'E' %} 
         <span class="produccion"><strong> Estado:</strong> En Producción <i id="martillo" class="bi bi-hammer"></i> </span>
         <small><i>({{pedido.dias_finalizar}} días aprox. para su finalización)</i></small>
         {% else %}
         <span class="enviado"><strong>Estado:</strong> En camino <i class="bi bi-truck"></i></span>
-        
+
         {% endif %}
-        <span><strong>Precio:</strong> {{ pedido.precio }}€</span>
-        
         {% endif %}
        
     </div>
@@ -38,6 +49,20 @@
     {% endif %}
     {% endfor %}
 </ol>
+{% else %}
+<p><i>No tienes pedidos aún.</i></p>
+{% endif %}
+
+{% else %}
+
+<div id="anuncio"><em> ¡Regístrate o inicia sesión para comprar y ver tus pedidos! </em>
+  <section>
+    <a href="{% url 'register' %}">Regístrate</a>
+    <a href="{% url 'login'%}?next={{request.path}}">Iniciar Sesión</a></div>
+  </section>
+</div>
+
+{% endif %}
 <footer id="final"></footer>
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"

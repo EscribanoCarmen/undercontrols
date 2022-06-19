@@ -125,6 +125,7 @@
   margin-left: 230px;
   display: none;
   z-index: 1;
+  box-shadow: 0px 3px 5px black;
 }
 
 #leds {
@@ -141,9 +142,21 @@
 
 .luz {
   border-radius: 100%;
-  background-color: black;
-  width: 10px;
-  height: 10px;
+  width: 9px;
+  height: 9px;
+  border: 1px solid black;
+}
+
+.verde{
+  background-color: rgba(22, 144, 22, 0.814);
+}
+
+.rojo{
+  background-color: rgba(255, 0, 0, 0.823);
+}
+
+.azul{
+  background-color: rgba(0, 0, 255, 0.832);
 }
 
 #display strong {

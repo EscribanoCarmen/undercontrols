@@ -68,23 +68,3 @@ ul{
 ul strong{
     color: var(--mainColor)
 }
-
-
-@media screen and (max-width: 610px){
-    #modificar, #eliminar{
-        font-size: smaller;
-        display: block;
-       width: 100%;
-       text-align: center;
-    }
-
-    #eliminar{
-        width: 110%;
-        padding: 10px 50px;
-    }
-
-    #objeto-lista section{
-        background-color: aquamarine;
-        text-align: center;
-    }
-}
