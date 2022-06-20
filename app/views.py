@@ -402,7 +402,7 @@ def comprar(request, pk, tipo, card, local):
 
     elif tipo == 3:
         pedido3 = Pedidos()
-        todos = TipoFormula1.objects.all()
+        todos = TipoCamion.objects.all()
         for i in todos:
             if i.id == ide:
                 pedido3.refCamion = i
@@ -412,7 +412,7 @@ def comprar(request, pk, tipo, card, local):
         for l in direcciones:
             if l.id == local:
                 pedido3.direccion = l
-        pedido3.tipo = 'F1 Moderno'
+        pedido3.tipo = 'Camion'
         pedido3.dias_finalizar = 30
         pedido3.precio = pedido3.refCamion.precio
         pedido3.id = Pedidos.objects.all().count() + 1
